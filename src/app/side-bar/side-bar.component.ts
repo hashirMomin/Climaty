@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -14,7 +15,14 @@ export class SideBarComponent {
     .pipe(
       map(result => result.matches)
     );
-
-  constructor(private breakpointObserver: BreakpointObserver) {}
+    activeWheatherRoute: any;
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {
+    const currentRoute = this.router.url;
+    const lastparams = currentRoute.split('/')[1];
+    console.log('link', currentRoute, 'l', lastparams);
+    if (lastparams !== null && lastparams !== undefined ) {
+      this.activeWheatherRoute = (lastparams === '') ? true : false;
+    }
+  }
 
 }

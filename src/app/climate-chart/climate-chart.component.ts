@@ -36,8 +36,6 @@ export class ClimateChartComponent implements OnInit {
   constructor(private data: DataServiceService) { }
   users$: Object;
   rainfallEngland: any = [];
-  tminEngland: any = [];
-  tmaxEngland: any = [];
   loc: any;
   met: any;
   startDate: any;
@@ -50,8 +48,6 @@ export class ClimateChartComponent implements OnInit {
   isShow = false;
   yearLabel: any = [];
   uniqueYearLabel: any = [];
-  selectedYear: number;
-  collectData: any = [];
   chartData = [];
 
   ngOnInit() {
@@ -83,6 +79,7 @@ export class ClimateChartComponent implements OnInit {
 
     return [year].join('-');
   }
+
   submit() {
     this.data.getWheather(this.met, this.loc).subscribe(data => {
       this.rainfallEngland = data;
@@ -140,6 +137,14 @@ export class ClimateChartComponent implements OnInit {
       });
       console.log(this.uniqueMonthsLabel);
     });
+  }
+
+  chartClicked(e) {
+
+  }
+
+  chartHovered(e) {
+
   }
 
 
