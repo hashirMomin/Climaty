@@ -58,6 +58,7 @@ export class ClimateChartComponent implements OnInit {
     this.met = '';
     this.startDate = '';
     this.endDate = '';
+    this.isShow = false;
     console.log(this.loc);
 
   }
@@ -65,6 +66,7 @@ export class ClimateChartComponent implements OnInit {
   clickFunctionMet() {
     this.startDate = '';
     this.endDate = '';
+    this.isShow = false;
     console.log(this.met);
   }
 
@@ -78,6 +80,10 @@ export class ClimateChartComponent implements OnInit {
     if (day.length < 2) { day = '0' + day; }
 
     return [year].join('-');
+  }
+
+  selectDate() {
+    this.endDate = '';
   }
 
   submit() {

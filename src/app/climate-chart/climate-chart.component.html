@@ -10,8 +10,8 @@
         <div class="row form-group text-center">
           <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3">
             <mat-form-field>
-              <mat-select placeholder="Select Country" [ngModelOptions]="{standalone: true}" [(ngModel)]="loc"
-                (change)="clickFunctionLoc(loc)">
+              <mat-select placeholder="Select Country" name="loc" id="loc" [(ngModel)]="loc"
+              (selectionChange)="clickFunctionLoc(loc)">
                 <mat-option *ngFor='let coutry of location' [value]="coutry.countryName">
                   {{coutry.countryName}}
                 </mat-option>
@@ -20,8 +20,8 @@
           </div>
           <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3">
             <mat-form-field>
-              <mat-select placeholder="Select Metric" [ngModelOptions]="{standalone: true}" [(ngModel)]="met"
-                (change)="clickFunctionMet(met)">
+              <mat-select placeholder="Select Metric" name="met" id="met" [(ngModel)]="met"
+              (selectionChange)="clickFunctionMet(met)">
                 <mat-option *ngFor='let metric of metric' [value]="metric.metricName">
                   {{metric.metricName}}
                 </mat-option>
@@ -30,7 +30,7 @@
           </div>
           <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3">
             <mat-form-field class="example-full-width">
-              <input matInput [ngModelOptions]="{standalone: true}" [matDatepicker]="picker1" [(ngModel)]="startDate"
+              <input matInput name="startDate" id="startDate"  [matDatepicker]="picker1" [(ngModel)]="startDate"
                 placeholder="Choose a Start date">
               <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
               <mat-datepicker #picker1></mat-datepicker>
@@ -38,7 +38,7 @@
           </div>
           <div class="col-md-3 col-sm-12 col-xs-12 col-lg-3">
             <mat-form-field class="example-full-width">
-              <input matInput [min]="startDate" [ngModelOptions]="{standalone: true}" [matDatepicker]="picker2"
+              <input matInput [min]="startDate" name="endDate" id="endDate" [matDatepicker]="picker2"
                 [(ngModel)]="endDate" placeholder="Choose a End date">
               <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
               <mat-datepicker #picker2></mat-datepicker>
